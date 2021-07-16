@@ -1,6 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:youtube_search_app/api.dart';
+import 'package:youtube_search_app/screens/home.dart';
 
-void main() => runApp(MyApp());
+
+void main() {
+
+  Api api = Api();
+  api.search('banana');
+
+  runApp(MyApp());
+}
 
 class MyApp extends StatelessWidget {
   @override
@@ -12,14 +21,3 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class Home extends StatefulWidget {
-  @override
-  _HomeState createState() => _HomeState();
-}
-
-class _HomeState extends State<Home> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
