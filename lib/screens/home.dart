@@ -7,7 +7,23 @@ class Home extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('teste'),
+        title: Container(
+          height: 35,
+          child: Image.asset('images/youtube_logo.png'),
+        ),
+        elevation: 0,
+        backgroundColor: Colors.black,
+        actions: [
+          Align(
+            child: Text('0',
+            style: TextStyle(
+              fontSize: 18
+            ),),
+            alignment: Alignment.center,
+          ),
+          IconButton(onPressed: () {}, icon: Icon(Icons.star)),
+          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+        ],
       ),
       body: Column(
         children: [
