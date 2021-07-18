@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_dotenv/flutter_dotenv.dart';
 import 'package:youtube_search_app/api.dart';
 import 'package:youtube_search_app/screens/home.dart';
 
+Future main() async {
 
-void main() {
+  await dotenv.load(fileName: ".env"); 
 
   Api api = Api();
-  api.search('banana');
+  api.search('banana', dotenv.env['API_KEY'].toString());
 
   runApp(MyApp());
 }

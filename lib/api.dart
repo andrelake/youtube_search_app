@@ -1,16 +1,16 @@
 import 'dart:convert';
 
 import 'package:http/http.dart' as http;
-import 'package:dotenv/dotenv.dart';
 import 'package:youtube_search_app/models/video.dart';
+
 
 class Api {
 
-  search(String search) async {
+  search(String search, String apiKey) async {
 
     http.Response response = await http.get(
         Uri.parse(
-        "https://www.googleapis.com/youtube/v3/search?part=snippet&q=$search&type=video&key=${env['API_KEY']}&maxResults=10"
+        "https://www.googleapis.com/youtube/v3/search?part=snippet&q=$search&type=video&key=$apiKey&maxResults=10"
       )
     );
 
@@ -26,7 +26,7 @@ class Api {
             return Video.fromJson(video);
           }
       ).toList();
-
+      
       return list;
     }
     else {
