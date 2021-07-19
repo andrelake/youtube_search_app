@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:youtube_search_app/api.dart';
 import 'package:http/http.dart' as http;
+import 'package:youtube_search_app/delegates/data_search.dart';
 
 class Home extends StatelessWidget {
   @override
@@ -15,14 +16,17 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.black,
         actions: [
           Align(
+            alignment: Alignment.center,
             child: Text('0',
-            style: TextStyle(
+              style: TextStyle(
               fontSize: 18
             ),),
-            alignment: Alignment.center,
           ),
           IconButton(onPressed: () {}, icon: Icon(Icons.star)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.search)),
+          IconButton(onPressed: () async {
+            String result = await showSearch(context: context, delegate: DataSearch());
+            print(result);
+          }, icon: Icon(Icons.search)),
         ],
       ),
       body: Column(
